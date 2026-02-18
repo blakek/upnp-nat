@@ -10,6 +10,7 @@
     "typescript": "^5"
   },
   "scripts": {
+    "dev": "bun --watch src/index.ts",
     "typecheck": "bun tsc --noEmit"
   }
 }
