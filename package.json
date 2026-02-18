@@ -4,7 +4,8 @@
   "type": "module",
   "private": true,
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "@types/nat-upnp": "^1.1.5"
   },
   "peerDependencies": {
     "typescript": "^5"
@@ -12,5 +13,8 @@
   "scripts": {
     "dev": "bun --watch src/index.ts",
     "typecheck": "bun tsc --noEmit"
+  },
+  "dependencies": {
+    "nat-upnp": "^1.1.1"
   }
 }
