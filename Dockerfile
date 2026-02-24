@@ -6,7 +6,7 @@ COPY . .
 RUN bun install --frozen-lockfile
 RUN bun run build
 
-# copy production dependencies and source code into final image
+# copy compiled binary into final image
 FROM oven/bun:1 AS release
 WORKDIR /app
 COPY --from=prerelease /app/dist/upnp-nat /app/upnp-nat
