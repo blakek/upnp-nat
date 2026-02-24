@@ -4,11 +4,17 @@ import { promisify } from "util";
 export type Protocol = "TCP" | "UDP";
 
 export interface CreatePortMappingOptions {
+  /** Optional description for the port mapping. If not provided, a default description will be generated. */
   description?: string;
+  /** External port to map (i.e. what port the gateway should listen on). */
   externalPort: number;
+  /** Internal IP address to map (i.e. what IP the gateway should forward to). */
   internalIp: string;
+  /** Internal port to map (i.e. what port the gateway should forward to). */
   internalPort: number;
+  /** Lease time for the port mapping in milliseconds. If not provided, the mapping will use the gateway's default lease time (often no expiration). */
   leaseTimeInMs?: number;
+  /** Protocol for the port mapping. If not provided, defaults to TCP. */
   protocol?: Protocol;
 }
 
@@ -58,6 +64,10 @@ type Responses = TaggedUnion<
     };
   }
 >;
+
+export function isProtocol(value: unknown): value is Protocol {
+  return value === "TCP" || value === "UDP";
+}
 
 export class Gateway {
   private readonly run: <Action extends Commands["action"]>(
