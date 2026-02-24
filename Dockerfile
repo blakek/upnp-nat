@@ -10,4 +10,5 @@ RUN bun run build
 FROM oven/bun:1 AS release
 WORKDIR /app
 COPY --from=prerelease /app/dist/upnp-nat /app/upnp-nat
+USER bun
 ENTRYPOINT [ "/app/upnp-nat" ]
