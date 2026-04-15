@@ -17,6 +17,6 @@
     "@types/nat-upnp": "^1.1.5"
   },
   "peerDependencies": {
-    "typescript": "^5"
+    "typescript": "^5.9.3"
   }
 }
